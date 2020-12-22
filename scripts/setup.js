@@ -1,118 +1,45 @@
-const game = () => {
-    let pScore = 0;
-    let cScore = 0;
+const canvas = document.getElementById('canvas1');
+const ctx1 = canvas.getContext('2d');
+canvas.wigth = 600;
+canvas.height = 600;
 
-    const startGame = () => {
-        const playBtn = document.querySelector('.intro button');
-        const introScreen = document.querySelector('.intro');
-        const match = document.querySelector('.match');
+const canvas2 = document.getElementById('canvas2');
+const ctx2 = canvas.getContext('2d');
+canvas.wigth = 600;
+canvas.height = 600;
 
-        playBtn.addEventListener('click', () => {
-            introScreen.classList.add("fadeOut");
-            match.classList.add("fadeIn");
-        });
-    };
+const canvas3 = document.getElementById('canvas3');
+const ctx3 = canvas.getContext('2d');
+canvas.wigth = 600;
+canvas.height = 600;
 
-    const playMatch = () => {
-        const options = document.querySelectorAll('.options button');
-        const playerHand = document.querySelector('.player-hand');
-        const computerHand = document.querySelector('.computer-hand');
+const canvas4 = document.getElementById('canvas4');
+const ctx4 = canvas.getContext('2d');
+canvas.wigth = 600;
+canvas.height = 600;
 
-        //fixing animation with hands
-        const hands = document.querySelectorAll('.hands img');
+const canvas5 = document.getElementById('canvas5');
+const ctx5 = canvas.getContext('2d');
+canvas.wigth = 600;
+canvas.height = 600;
 
-        hands.forEach(hand => {
-            hand.addEventListener('animationend', function () {
-                this.style.animation = '';
-            });
-        })
+// global variables
+const grid = 80;
+let keys = [];
+let score = 0;
+let collisions = 0;
+let frame = 0;
+let gameSpeed = 1;
 
-        //generate random variant
-        const computerOptions = [ 'rock', 'paper', 'scissors' ];
-        options.forEach(option => {
-            option.addEventListener('click', function () {
-                // computer choice
-                const computerNumber = Math.floor(Math.random() * 3);
-                const computerChoice = computerOptions[ computerNumber ];
+const particlesArray = [];
+const maxParticles = 300;
+const ripplesArray = [];
+const carsArray = [];
+const logsArray = [];
 
-                setTimeout(() => {
-                    // call compare hands
-                    compareHands(this.textContent, computerChoice);
-                    //update images
-                    playerHand.src = `./img/${this.textContent}.png`;
-                    computerHand.src = `./img/${computerChoice}.png`;
-                }, 2000)
-                //animation
-                playerHand.style.animation = 'shakePlayer 2s ease';
-                computerHand.style.animation = 'shakeComputer 2s ease';
+// images
+const background_lvl2 = new Image();
+background_lvl2.src = '../img/background_lvl2.png';
 
-                playerHand.src = `./img/rock.png`;
-                computerHand.src = `./img/rock.png`;
-            });
-        });
-    };
-
-    const updateScore = () => {
-        const playerScore = document.querySelector('.player-score p');
-        const computerScore = document.querySelector('.computer-score p');
-        playerScore.textContent = pScore;
-        computerScore.textContent = cScore;
-    }
-
-    const compareHands = (playerChoice, computerChoice) => {
-        const winner = document.querySelector('.winner');
-        if (playerChoice === computerChoice) {
-            winner.textContent = 'It is a tie';
-            return;
-        }
-
-        if (playerChoice === 'rock') {
-            if (computerChoice === 'scissors') {
-                winner.textContent = 'Player wins';
-                pScore++;
-                updateScore();
-                return;
-            } else {
-                winner.textContent = 'Computer wins';
-                cScore++;
-                updateScore();
-                return;
-            }
-        }
-
-        if (playerChoice === 'paper') {
-            if (computerChoice === 'rock') {
-                winner.textContent = 'Player wins';
-                pScore++;
-                updateScore();
-                return;
-            } else {
-                winner.textContent = 'Computer wins';
-                cScore++;
-                updateScore();
-                return;
-            }
-        }
-
-        if (playerChoice === 'scissors') {
-            if (computerChoice === 'paper') {
-                winner.textContent = 'Player wins';
-                pScore++;
-                updateScore();
-                return;
-            } else {
-                winner.textContent = 'Computer wins';
-                cScore++;
-                updateScore();
-                return;
-            }
-        }
-
-    }
-
-    startGame();
-    // updateScore();
-    playMatch();
-};
-
-game();
+const grass = new Image();
+grass.src = '../img/grass.png';
