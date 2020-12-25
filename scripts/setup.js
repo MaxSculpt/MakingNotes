@@ -4,22 +4,22 @@ canvas.wigth = 600;
 canvas.height = 600;
 
 const canvas2 = document.getElementById('canvas2');
-const ctx2 = canvas.getContext('2d');
+const ctx2 = canvas2.getContext('2d');
 canvas.wigth = 600;
 canvas.height = 600;
 
 const canvas3 = document.getElementById('canvas3');
-const ctx3 = canvas.getContext('2d');
+const ctx3 = canvas3.getContext('2d');
 canvas.wigth = 600;
 canvas.height = 600;
 
 const canvas4 = document.getElementById('canvas4');
-const ctx4 = canvas.getContext('2d');
+const ctx4 = canvas4.getContext('2d');
 canvas.wigth = 600;
 canvas.height = 600;
 
 const canvas5 = document.getElementById('canvas5');
-const ctx5 = canvas.getContext('2d');
+const ctx5 = canvas5.getContext('2d');
 canvas.wigth = 600;
 canvas.height = 600;
 
