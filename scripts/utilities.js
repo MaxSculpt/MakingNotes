@@ -15,8 +15,8 @@ function animate() {
     handleObstacles();
     handleScoreBoard();
     ctx4.drawImage(grass, 0, 0);
+    frame++;
     requestAnimationFrame(animate);
-
 }
 
 animate();
@@ -50,7 +50,6 @@ function handleScoreBoard() {
     ctx4.font = '60px Verdana';
     ctx4.fillText(score, 270, 65);
     ctx4.font = '15px Verdana';
-    // ctx4.strokeText('Collisions: ' + collisionsCount, 10, 175);
     ctx4.strokeText('Collisions: ' + collisionsCount, 10, 175);
     ctx4.strokeText('Game Speed: ' + gameSpeed.toFixed(1), 10, 195);
 }
@@ -61,5 +60,13 @@ function collision(first, second) {
         first.x + first.width < second.x ||
         first.y > second.y + second.height ||
         first.y + first.height < second.y
-    )
+    );
+}
+
+function resetGame() {
+    frog.x = canvas.width / 2 - frog.width / 2;
+    frog.y = canvas.height - frog.height - 40;
+    score = 0;
+    collisionsCount++;
+    gameSpeed = 1;
 }

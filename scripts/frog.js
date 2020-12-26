@@ -2,7 +2,6 @@ class Frog {
     constructor() {
         this.spriteWidth = 250;
         this.spriteHeight = 250;
-        // this.width = this.spriteWidth / 5;
         this.width = this.spriteWidth / 5;
         this.height = this.spriteHeight / 5;
         this.x = canvas.width / 2 - this.width / 5;
