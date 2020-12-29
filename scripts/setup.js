@@ -30,6 +30,7 @@ let score = 0;
 let collisionsCount = 0;
 let frame = 0;
 let gameSpeed = 1;
+let safe = false;
 
 const particlesArray = [];
 const maxParticles = 300;
@@ -57,3 +58,5 @@ const car = new Image();
 car.src = '../img/cars.png';
 let numberOfCars = 3;
 
+const frogSprite = new Image();
+frogSprite.src = '../img/frog_spritesheet.png';

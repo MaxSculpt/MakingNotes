@@ -5,7 +5,6 @@ function animate() {
     ctx4.clearRect(0, 0, canvas.width, canvas.height);
     ctx5.clearRect(0, 0, canvas.width, canvas.height);
 
-
     handleRipples();
     ctx2.drawImage(background_lvl2, 0, 0);
     handleParticles();
@@ -33,6 +32,7 @@ window.addEventListener('keydown', function (e) {
 window.addEventListener('keyup', function (e) {
     delete keys[ e.keyCode ];
     frog.moving = false;
+    frog.frameX = 0;
 })
 
 function scored() {

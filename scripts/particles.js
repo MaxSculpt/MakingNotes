@@ -48,7 +48,6 @@ function handleParticles() {
     for (let i = 0; i < particlesArray.length; i++) {
         particlesArray[ i ].update();
         particlesArray[ i ].draw();
-
     }
     if (particlesArray.length > maxParticles) {
         for (let i = 0; i < 30; i++) {
@@ -58,7 +57,6 @@ function handleParticles() {
     if (((keys[ 37 ] || keys[ 38 ] || keys[ 39 ] || keys[ 40 ])) && frog.y > 250 && particlesArray.length < maxParticles + 10) {
         for (let i = 0; i < 10; i++) {
             particlesArray.unshift(new Particle(frog.x, frog.y));
-
         }
     }
 }
@@ -68,14 +66,12 @@ function handleRipples() {
     for (let i = 0; i < ripplesArray.length; i++) {
         ripplesArray[ i ].ripples();
         ripplesArray[ i ].drawRipples();
-
     }
     if (ripplesArray.length > 20) {
         for (let i = 0; i < 5; i++) {
             ripplesArray.pop();
         }
     }
-
     if (((keys[ 37 ] || keys[ 38 ] || keys[ 39 ] || keys[ 40 ])) && frog.y < 250 && frog.y > 100) {
         for (let i = 0; i < 20; i++) {
             ripplesArray.unshift(new Particle(frog.x, frog.y));
